@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class EnemySpawner : MonoBehaviour
     private float spawnTimer;
     private bool isSpawning;
 
+    private EnemyData currentEnemyData;
+
+    private Queue<EnemyData> enemyQueue = new Queue<EnemyData>();
+
     private void Update()
     {
         if (!isSpawning)
@@ -33,20 +38,47 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void StartWave(int enemyCount)
+    public void StartWave(params EnemyWaveData[] enemies)
     {
-        remainingEnemies = enemyCount;
+        enemyQueue.Clear();
+
+        foreach (EnemyWaveData enemy in enemies)
+        {
+            for (int i = 0; i < enemy.count; i++)
+            {
+                enemyQueue.Enqueue(enemy.enemyData);
+            }
+        }
+
+        remainingEnemies = enemyQueue.Count;
+
         isSpawning = true;
         spawnTimer = spawnInterval;
     }
 
     private void SpawnEnemy()
     {
-        Instantiate(
+        if (enemyQueue.Count <= 0)
+        {
+            isSpawning = false;
+            return;
+        }
+
+        EnemyData enemyData = enemyQueue.Dequeue();
+
+        GameObject enemyObject = Instantiate(
             enemyPrefab,
             spawnPoint.position,
             Quaternion.identity
         );
+
+        EnemyController enemyController =
+            enemyObject.GetComponent<EnemyController>();
+
+        if (enemyController != null)
+        {
+            enemyController.Initialize(enemyData);
+        }
 
         remainingEnemies--;
         activeEnemies++;

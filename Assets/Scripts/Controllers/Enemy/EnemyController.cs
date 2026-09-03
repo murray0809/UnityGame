@@ -5,21 +5,44 @@ public class EnemyController : MonoBehaviour
     private EnemyModel model;
     private EnemyView view;
 
+    [SerializeField]
+    private EnemyData enemyData;
+
     private WaypointController waypointController;
 
     private int currentWaypointIndex = 0;
 
     private void Awake()
     {
-        model = new EnemyModel(100, 2f, 10, 1);
         view = GetComponent<EnemyView>();
 
         waypointController = FindFirstObjectByType<WaypointController>();
     }
 
+    private void Start()
+    {
+        if (enemyData == null)
+        {
+            Debug.LogError("EnemyData is not assigned!");
+            return;
+        }
+
+        model = new EnemyModel(
+            enemyData.maxHp,
+            enemyData.moveSpeed,
+            enemyData.reward,
+            enemyData.goalDamage
+        );
+    }
+
     private void Update()
     {
         MoveToWaypoint();
+    }
+
+    public void Initialize(EnemyData data)
+    {
+        enemyData = data;
     }
 
     private void MoveToWaypoint()
