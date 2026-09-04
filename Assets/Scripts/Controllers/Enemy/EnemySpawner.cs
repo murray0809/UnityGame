@@ -22,6 +22,36 @@ public class EnemySpawner : MonoBehaviour
 
     private Queue<EnemyData> enemyQueue = new Queue<EnemyData>();
 
+    private GameController gameController;   // Å© í«â¡
+
+    private void Awake()
+    {
+        gameController = FindFirstObjectByType<GameController>();
+    }
+
+    private void OnEnable()
+    {
+        if (gameController != null)
+        {
+            gameController.OnGameOver += HandleGameOver;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (gameController != null)
+        {
+            gameController.OnGameOver -= HandleGameOver;
+        }
+    }
+
+    private void HandleGameOver()
+    {
+        // îsñkå„ÇÕêVÇΩÇ»ìGÇÉXÉ|Å[ÉìÇ≥ÇπÇ»Ç¢
+        isSpawning = false;
+        enemyQueue.Clear();
+    }
+
     private void Update()
     {
         if (!isSpawning)

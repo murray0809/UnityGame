@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
 
     private int currentWaypointIndex = 0;
 
+    public int CurrentWaypointIndex => currentWaypointIndex;
+
     private void Awake()
     {
         view = GetComponent<EnemyView>();

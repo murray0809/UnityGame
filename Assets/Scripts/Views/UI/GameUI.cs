@@ -12,6 +12,17 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI waveText;
 
+    [SerializeField]
+    private TextMeshProUGUI resultText;   // Å© í«â¡
+
+    private void Awake()
+    {
+        if (resultText != null)
+        {
+            resultText.gameObject.SetActive(false);
+        }
+    }
+
     public void UpdateLife(int life)
     {
         lifeText.text = "Life: " + life;
@@ -26,5 +37,17 @@ public class GameUI : MonoBehaviour
     {
         waveText.text =
             "Wave: " + currentWave + " / " + totalWaves;
+    }
+
+    // "GAME OVER" / "GAME CLEAR" ÇâÊñ Ç…ï\é¶Ç∑ÇÈ
+    public void ShowResult(string message)
+    {
+        if (resultText == null)
+        {
+            return;
+        }
+
+        resultText.text = message;
+        resultText.gameObject.SetActive(true);
     }
 }

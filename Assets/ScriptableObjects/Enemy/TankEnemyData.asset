@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb376789c241e10429a0f22e2c0789f2, type: 3}
   m_Name: TankEnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHp: 100
-  moveSpeed: 2
-  reward: 10
-  goalDamage: 1
+  maxHp: 400
+  moveSpeed: 1
+  reward: 30
+  goalDamage: 3

@@ -22,9 +22,35 @@ public class WaveController : MonoBehaviour
     [SerializeField]
     private EnemyData bossEnemyData;
 
+    private GameController gameController;   // Å© í«â¡
+
     private void Awake()
     {
         model = new WaveModel(5);
+
+        gameController = FindFirstObjectByType<GameController>();   // Å© í«â¡
+    }
+
+    private void OnEnable()
+    {
+        if (gameController != null)
+        {
+            gameController.OnGameOver += HandleGameOver;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (gameController != null)
+        {
+            gameController.OnGameOver -= HandleGameOver;
+        }
+    }
+
+    private void HandleGameOver()
+    {
+        // îsñkéûÇÕÇªÇÍà»è„WaveÇêiçsÇ≥ÇπÇ»Ç¢
+        enabled = false;
     }
 
     private void Start()
@@ -44,7 +70,11 @@ public class WaveController : MonoBehaviour
     {
         if (model.IsFinished())
         {
-            Debug.Log("Game Clear!");
+            if (gameController != null)
+            {
+                gameController.GameClear();   // Å© Ç±Ç±Ç≈GameControllerÇ…í ím
+            }
+
             enabled = false;
             return;
         }

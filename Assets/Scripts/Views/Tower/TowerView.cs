@@ -6,4 +6,9 @@ public class TowerView : MonoBehaviour
     {
         transform.position = position;
     }
+
+    public void ShowAttack()
+    {
+        Debug.Log("Tower Attack!");
+    }
 }

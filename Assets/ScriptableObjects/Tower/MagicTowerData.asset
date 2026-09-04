@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb376789c241e10429a0f22e2c0789f2, type: 3}
-  m_Name: BossEnemyData
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHp: 2000
-  moveSpeed: 1
-  reward: 200
-  goalDamage: 10
+  m_Script: {fileID: 11500000, guid: f4e84e7b06d3ce749b2301b5830dff05, type: 3}
+  m_Name: MagicTowerData
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  cost: 100
+  attackPower: 40
+  attackInterval: 1
+  attackRange: 4

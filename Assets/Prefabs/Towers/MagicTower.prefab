@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3387418569949658695}
   - component: {fileID: 5845038639167847115}
   - component: {fileID: 3569243272791319720}
-  - component: {fileID: -3396031861147332233}
+  - component: {fileID: 7781152262278117395}
   m_Layer: 0
-  m_Name: Tower_Arrow
+  m_Name: MagicTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6320444377adbd458d118a62ec2412e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerController
-  towerData: {fileID: 11400000, guid: be853f93f4d4d0d4ba06e26aeeeeb2af, type: 2}
+  towerData: {fileID: 11400000, guid: 5ce7d994e8a1e454dbdde364c2b1a6e3, type: 2}
   projectilePrefab: {fileID: 7234575914591511747, guid: 396d95a72edee954882f0f27ced4b2dd, type: 3}
+  isMagicTower: 1
 --- !u!114 &3569243272791319720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4dcaf19feed47a4aa197f0fcc061779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerView
---- !u!61 &-3396031861147332233
+--- !u!61 &7781152262278117395
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
