@@ -1,5 +1,6 @@
 using System;   // © ’Ç‰Á
 using UnityEngine;
+using UnityEngine.SceneManagement;   // © ’Ç‰Á
 
 public class GameController : MonoBehaviour
 {
@@ -113,5 +114,12 @@ public class GameController : MonoBehaviour
         }
 
         OnGameClear?.Invoke();
+    }
+
+    // RetryButton‚ÌOnClick‚©‚çŒÄ‚Ño‚·
+    public void RestartGame()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }

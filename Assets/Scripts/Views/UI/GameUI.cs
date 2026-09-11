@@ -15,11 +15,19 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI resultText;   // Å© í«â¡
 
+    [SerializeField]
+    private GameObject retryButton;   // Å© í«â¡
+
     private void Awake()
     {
         if (resultText != null)
         {
             resultText.gameObject.SetActive(false);
+        }
+
+        if (retryButton != null)   // Å© í«â¡
+        {
+            retryButton.SetActive(false);
         }
     }
 
@@ -49,5 +57,10 @@ public class GameUI : MonoBehaviour
 
         resultText.text = message;
         resultText.gameObject.SetActive(true);
+
+        if (retryButton != null)   // Å© í«â¡
+        {
+            retryButton.SetActive(true);
+        }
     }
 }

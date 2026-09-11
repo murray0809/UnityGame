@@ -1,0 +1,22 @@
+using UnityEngine;
+
+public class TitleController : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject titlePanel;
+
+    [SerializeField]
+    private WaveController waveController;
+
+    [SerializeField]
+    private TowerPlacer towerPlacer;
+
+    // StartButtonÇÃOnClickÇ©ÇÁåƒÇ—èoÇ∑
+    public void StartGame()
+    {
+        titlePanel.SetActive(false);
+
+        waveController.enabled = true;
+        towerPlacer.enabled = true;
+    }
+}
