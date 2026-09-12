@@ -16,3 +16,4 @@ MonoBehaviour:
   moveSpeed: 1
   reward: 200
   goalDamage: 10
+  sprite: {fileID: 21300000, guid: 4298399392d82cb4498f19d12ba7d933, type: 3}

@@ -14,6 +14,23 @@ public class ProjectileController : MonoBehaviour
     [SerializeField]
     private GameObject magicExplosionPrefab;
 
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;   // ← 追加
+
+    [SerializeField]
+    private Sprite normalSprite;   // ← 追加
+
+    [SerializeField]
+    private Sprite magicSprite;   // ← 追加
+
+    private void Awake()   // ← 追加
+    {
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+    }
+
     public void Initialize(
         EnemyController target,
         int damage,
@@ -26,6 +43,23 @@ public class ProjectileController : MonoBehaviour
             8f,
             damage
         );
+
+        ApplySprite();   // ← 追加
+    }
+
+    private void ApplySprite()   // ← 追加（新規メソッド）
+    {
+        if (spriteRenderer == null)
+        {
+            return;
+        }
+
+        Sprite sprite = isMagic ? magicSprite : normalSprite;
+
+        if (sprite != null)
+        {
+            spriteRenderer.sprite = sprite;
+        }
     }
 
     private void Update()

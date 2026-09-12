@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;   // ← 追加
 
 public class TowerPlacer : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class TowerPlacer : MonoBehaviour
     [SerializeField]
     private Collider2D placementArea;
 
+    // After
     [SerializeField]
-    private Collider2D enemyPath;
+    private Collider2D[] enemyPathColliders;
 
     [SerializeField]
     private TowerUpgradeUI towerUpgradeUI;
@@ -57,6 +59,13 @@ public class TowerPlacer : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
+            // UI（ボタンなど）の上をクリックした場合は無視する   ← 追加
+            if (EventSystem.current != null &&
+                EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             Debug.Log("クリック検出");
 
             Vector2 mousePosition =
@@ -124,11 +133,14 @@ public class TowerPlacer : MonoBehaviour
             return;
         }
 
-        // 敵の通路上なら終了
-        if (enemyPath.OverlapPoint(worldPosition))
+        // After
+        foreach (Collider2D pathCollider in enemyPathColliders)
         {
-            Debug.Log("敵の通路にはTowerを置けません。");
-            return;
+            if (pathCollider != null && pathCollider.OverlapPoint(worldPosition))
+            {
+                Debug.Log("敵の通路にはTowerを置けません。");
+                return;
+            }
         }
 
         // After

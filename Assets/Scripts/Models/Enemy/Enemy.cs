@@ -11,4 +11,7 @@ public class EnemyData : ScriptableObject
     public float moveSpeed = 2f;
     public int reward = 10;
     public int goalDamage = 1;
+
+    [Header("Appearance")]
+    public Sprite sprite;   // Å© í«â¡
 }

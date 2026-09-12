@@ -35,6 +35,8 @@ public class EnemyController : MonoBehaviour
             enemyData.reward,
             enemyData.goalDamage
         );
+
+        view.SetSprite(enemyData.sprite);   // Å© í«â¡
     }
 
     private void Update()
