@@ -108,8 +108,8 @@ MonoBehaviour:
   magicAttackRange: 1.5
   magicExplosionPrefab: {fileID: 8715475266824284702, guid: 4986a1df8d8043e4a83819dea8b00c22, type: 3}
   spriteRenderer: {fileID: 0}
-  normalSprite: {fileID: 21300000, guid: 7f78dc93eca1bea4b9e8bef905597250, type: 3}
-  magicSprite: {fileID: 21300000, guid: bffa38328888e48489b1721028a9293c, type: 3}
+  normalSprite: {fileID: 21300000, guid: 12e20d19175162946bece95f9fbd872e, type: 3}
+  magicSprite: {fileID: 21300000, guid: 84b97c4995f99fd4294c9f51c8d2982f, type: 3}
 --- !u!114 &3171997101784622320
 MonoBehaviour:
   m_ObjectHideFlags: 0

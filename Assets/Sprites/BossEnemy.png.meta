@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4298399392d82cb4498f19d12ba7d933
+guid: b946db289f392bd47acb7e35a6ee797a
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -118,8 +118,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 216
-        height: 236
+        width: 1254
+        height: 1235
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      BossEnemy_0: -3699697277425479114
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
