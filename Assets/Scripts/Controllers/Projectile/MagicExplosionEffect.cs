@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 魔法弾の着弾時に表示する爆発エフェクト。
+/// 攻撃範囲と同じ大きさまで広がり、フェードアウトしてから自身を破棄する。
+/// </summary>
 public class MagicExplosionEffect : MonoBehaviour
 {
+    /// <summary>エフェクト全体の再生時間（秒）。</summary>
     private float duration = 0.35f;
 
+    /// <summary>爆発の画像を描画するSpriteRenderer。</summary>
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
+    /// <summary>
+    /// SpriteRendererの取得と描画順の設定を行う。
+    /// </summary>
     private void Awake()
     {
         if (spriteRenderer == null)
@@ -19,7 +28,10 @@ public class MagicExplosionEffect : MonoBehaviour
         spriteRenderer.sortingOrder = 10;
     }
 
-    // radius: 魔法攻撃の効果範囲（ワールド単位の半径）
+    /// <summary>
+    /// 攻撃範囲に合わせて大きさを計算し、アニメーションを開始する。
+    /// </summary>
+    /// <param name="radius">魔法攻撃の効果範囲（ワールド単位の半径）</param>
     public void Initialize(float radius)
     {
         if (spriteRenderer == null)
@@ -32,15 +44,21 @@ public class MagicExplosionEffect : MonoBehaviour
         float spriteWidth = spriteRenderer.sprite.bounds.size.x;
         float targetScale = (radius * 2f) / spriteWidth;
 
+        // 大きさ0から広がる演出にするため、最初は見えない状態にする
         transform.localScale = Vector3.zero;
 
         StartCoroutine(AnimateAndDestroy(targetScale));
     }
 
+    /// <summary>
+    /// 「広がる → 少し縮んで落ち着く → フェードアウト」の3段階で再生し、最後に破棄するコルーチン。
+    /// </summary>
+    /// <param name="targetScale">最終的な大きさ（攻撃範囲と一致するスケール）</param>
     private IEnumerator AnimateAndDestroy(float targetScale)
     {
         float elapsed = 0f;
 
+        // アルファ値を1にリセットして、完全に不透明な状態から始める
         Color color = spriteRenderer.color;
         color.a = 1f;
         spriteRenderer.color = color;
