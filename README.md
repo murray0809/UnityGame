@@ -5,7 +5,8 @@ Unity と C# の学習の成果として、ゲームの流れを一通り作り�
 
 ## プレイ
 **unityroom でブラウザからすぐに遊べます（インストール不要）**
-👉 【https://unityroom.com/games/test999999999999】
+
+👉 【[https://unityroom.com/games/test999999999999](https://unityroom.com/games/tinydefense)】
 
 - 制作期間: 【2週間】
 - 制作人数: 1人
