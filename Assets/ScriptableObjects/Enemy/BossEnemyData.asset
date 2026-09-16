@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb376789c241e10429a0f22e2c0789f2, type: 3}
   m_Name: BossEnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHp: 2000
+  maxHp: 1800
   moveSpeed: 1
-  reward: 200
+  reward: 220
   goalDamage: 10
   sprite: {fileID: 21300000, guid: b946db289f392bd47acb7e35a6ee797a, type: 3}

@@ -16,7 +16,9 @@ public class TowerController : MonoBehaviour
     [SerializeField]
     private bool isMagicTower;
 
-    private GameController gameController;   // ← 追加
+    private SpriteRenderer spriteRenderer;
+
+    private GameController gameController;
 
     private void Awake()
     {
@@ -31,13 +33,15 @@ public class TowerController : MonoBehaviour
 
         view = GetComponent<TowerView>();
 
-        gameController = FindFirstObjectByType<GameController>();   // ← 追加
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        gameController = FindFirstObjectByType<GameController>();
     }
 
     private void Update()
     {
-        // ゲーム終了後は攻撃しない
-        if (gameController != null && gameController.IsGameEnded)   // ← 追加
+        // ゲーム終了後は攻撃しない（Game Over後に無意味な演出が続くのを防ぐ）。
+        if (gameController != null && gameController.IsGameEnded)
         {
             return;
         }
@@ -61,6 +65,14 @@ public class TowerController : MonoBehaviour
         if (target == null)
         {
             return;
+        }
+
+        Vector3 direction =
+            target.transform.position - transform.position;
+
+        if (Mathf.Abs(direction.x) > 0.01f)
+        {
+            spriteRenderer.flipX = direction.x < 0f;
         }
 
         GameObject projectileObject = Instantiate(

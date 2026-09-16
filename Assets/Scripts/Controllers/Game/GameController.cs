@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        model = new GameModel(20, 200);
+        model = new GameModel(15, 150);
     }
 
     private void Start()

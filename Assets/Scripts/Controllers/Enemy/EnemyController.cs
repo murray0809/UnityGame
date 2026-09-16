@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
 
     public int CurrentWaypointIndex => currentWaypointIndex;
 
+    private bool isDefeated = false;   // ← 追加（フィールド）
+
     private void Awake()
     {
         view = GetComponent<EnemyView>();
@@ -82,6 +84,12 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        // 既に撃破処理済みなら何もしない（同フレーム内の多重ヒット対策）
+        if (isDefeated)
+        {
+            return;
+        }
+
         model.TakeDamage(damage);
 
         Debug.Log("Enemy HP: " + model.HP);
@@ -94,6 +102,13 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
+        if (isDefeated)
+        {
+            return;
+        }
+
+        isDefeated = true;
+
         EnemySpawner enemySpawner =
             FindFirstObjectByType<EnemySpawner>();
 
@@ -117,6 +132,13 @@ public class EnemyController : MonoBehaviour
 
     private void ReachGoal()
     {
+        if (isDefeated)
+        {
+            return;
+        }
+
+        isDefeated = true;
+
         GameController gameController =
             FindFirstObjectByType<GameController>();
 

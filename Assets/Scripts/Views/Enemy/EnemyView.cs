@@ -5,12 +5,12 @@ public class EnemyView : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;   // ← 追加
 
-    private void Awake()   // ← 追加
+    private void Awake()
     {
-        // Inspectorで未設定の場合は自動取得する
+        // Inspectorで未設定の場合は自動取得する（子オブジェクトも含めて検索）
         if (spriteRenderer == null)
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
     }
 

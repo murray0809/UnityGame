@@ -78,6 +78,17 @@ public class ProjectileController : MonoBehaviour
             model.MoveSpeed *
             Time.deltaTime;
 
+        if (direction.sqrMagnitude > 0.0001f)   // ← ここから追加
+        {
+            float angle =
+                Mathf.Atan2(direction.y, direction.x) *
+                Mathf.Rad2Deg;
+
+            // スプライトは「上向き」が正面なので-90度補正する
+            transform.rotation =
+                Quaternion.Euler(0f, 0f, angle - 90f);
+        }   // ← ここまで追加
+
         if (Vector3.Distance(
                 transform.position,
                 target.transform.position) < 0.1f)

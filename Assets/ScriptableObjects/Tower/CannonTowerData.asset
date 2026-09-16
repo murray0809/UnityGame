@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: CannonTowerData
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   cost: 50
-  attackPower: 25
+  attackPower: 20
   attackInterval: 0.6
   attackRange: 3
+  upgradeAttackPower: 6
+  upgradeAttackRange: 0.15

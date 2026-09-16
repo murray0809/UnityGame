@@ -72,7 +72,7 @@ public class WaveController : MonoBehaviour
         {
             if (gameController != null)
             {
-                gameController.GameClear();   // Å© Ç±Ç±Ç≈GameControllerÇ…í ím
+                gameController.GameClear();
             }
 
             enabled = false;
@@ -91,56 +91,11 @@ public class WaveController : MonoBehaviour
                 new EnemyWaveData
                 {
                     enemyData = normalEnemyData,
-                    count = 5
+                    count = 8
                 }
             );
         }
         else if (model.CurrentWave == 2)
-        {
-            enemySpawner.StartWave(
-                new EnemyWaveData
-                {
-                    enemyData = normalEnemyData,
-                    count = 8
-                }
-            );
-        }
-        else if (model.CurrentWave == 3)
-        {
-            enemySpawner.StartWave(
-                new EnemyWaveData
-                {
-                    enemyData = normalEnemyData,
-                    count = 5
-                },
-                new EnemyWaveData
-                {
-                    enemyData = fastEnemyData,
-                    count = 3
-                }
-            );
-        }
-        else if (model.CurrentWave == 4)
-        {
-            enemySpawner.StartWave(
-                new EnemyWaveData
-                {
-                    enemyData = normalEnemyData,
-                    count = 8
-                },
-                new EnemyWaveData
-                {
-                    enemyData = fastEnemyData,
-                    count = 5
-                },
-                new EnemyWaveData
-                {
-                    enemyData = tankEnemyData,
-                    count = 2
-                }
-            );
-        }
-        else if (model.CurrentWave == 5)
         {
             enemySpawner.StartWave(
                 new EnemyWaveData
@@ -151,17 +106,72 @@ public class WaveController : MonoBehaviour
                 new EnemyWaveData
                 {
                     enemyData = fastEnemyData,
-                    count = 5
+                    count = 6
+                }
+            );
+        }
+        else if (model.CurrentWave == 3)
+        {
+            enemySpawner.StartWave(
+                new EnemyWaveData
+                {
+                    enemyData = normalEnemyData,
+                    count = 10
+                },
+                new EnemyWaveData
+                {
+                    enemyData = fastEnemyData,
+                    count = 7
                 },
                 new EnemyWaveData
                 {
                     enemyData = tankEnemyData,
                     count = 3
+                }
+            );
+        }
+        else if (model.CurrentWave == 4)
+        {
+            enemySpawner.StartWave(
+                new EnemyWaveData
+                {
+                    enemyData = normalEnemyData,
+                    count = 14
+                },
+                new EnemyWaveData
+                {
+                    enemyData = fastEnemyData,
+                    count = 9
+                },
+                new EnemyWaveData
+                {
+                    enemyData = tankEnemyData,
+                    count = 5
+                }
+            );
+        }
+        else if (model.CurrentWave == 5)
+        {
+            enemySpawner.StartWave(
+                new EnemyWaveData
+                {
+                    enemyData = normalEnemyData,
+                    count = 16
+                },
+                new EnemyWaveData
+                {
+                    enemyData = fastEnemyData,
+                    count = 10
+                },
+                new EnemyWaveData
+                {
+                    enemyData = tankEnemyData,
+                    count = 7
                 },
                 new EnemyWaveData
                 {
                     enemyData = bossEnemyData,
-                    count = 1
+                    count = 2
                 }
             );
         }

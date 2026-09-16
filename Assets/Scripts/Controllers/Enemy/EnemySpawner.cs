@@ -72,12 +72,26 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyQueue.Clear();
 
+        List<EnemyData> spawnList = new List<EnemyData>();
+
         foreach (EnemyWaveData enemy in enemies)
         {
             for (int i = 0; i < enemy.count; i++)
             {
-                enemyQueue.Enqueue(enemy.enemyData);
+                spawnList.Add(enemy.enemyData);
             }
+        }
+
+        // 出現順をシャッフルして、種類ごとに固まらないようにする
+        for (int i = spawnList.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (spawnList[i], spawnList[j]) = (spawnList[j], spawnList[i]);
+        }
+
+        foreach (EnemyData enemyData in spawnList)
+        {
+            enemyQueue.Enqueue(enemyData);
         }
 
         remainingEnemies = enemyQueue.Count;

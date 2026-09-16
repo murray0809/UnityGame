@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MagicTowerData
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   cost: 100
-  attackPower: 40
+  attackPower: 35
   attackInterval: 1
   attackRange: 4
+  upgradeAttackPower: 8
+  upgradeAttackRange: 0.15

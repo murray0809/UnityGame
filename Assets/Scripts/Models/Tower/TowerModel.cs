@@ -23,7 +23,7 @@ public class TowerModel
         AttackInterval = attackInterval;
         AttackRange = attackRange;
 
-        UpgradeCost = 50;
+        UpgradeCost = 70;
         Level = 1;
 
         this.upgradeAttackPower = upgradeAttackPower;
@@ -40,7 +40,7 @@ public class TowerModel
         AttackPower += upgradeAttackPower;
         AttackRange += upgradeAttackRange;
 
-        UpgradeCost += 25;
+        UpgradeCost += 45;
         Level++;
     }
 }
